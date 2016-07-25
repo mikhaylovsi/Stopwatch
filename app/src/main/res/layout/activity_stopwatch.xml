@@ -16,17 +16,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:layout_alignParentTop="true"
-        android:textSize="80sp"
-        android:text="@string/time"
+        android:textSize="88sp"
+        android:text=""
+        android:textAppearance="?android:textAppearanceLarge"
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/start"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/time_view"
         android:text="@string/start"
+        android:onClick="onCLickStart"
         />
 
     <Button
@@ -34,9 +36,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/stop"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/start"
         android:text="@string/stop"
+        android:onClick="onClickStop"
         />
 
     <Button
@@ -44,9 +47,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/reset"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/stop"
         android:text="@string/reset"
+        android:onClick="onCLickReset"
         />
 
 </RelativeLayout>
