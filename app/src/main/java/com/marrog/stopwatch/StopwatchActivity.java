@@ -26,21 +26,18 @@ public class StopwatchActivity extends AppCompatActivity {
 
     void runTimer(){
 
-        timeView.setText(String.valueOf(seconds));
+       // timeView.setText(String.valueOf(seconds));
 
-        while(running){
+        int hours = seconds / 3600;
+        int minutes = (seconds%3600) / 60;
+        int secs = seconds%60;
 
-            seconds += 1;
+//        while(running){
+//            seconds++;
+//        }
 
-            timeView.setText(String.valueOf(seconds));
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        }
+        String time = String.format("Time is %d:%5d", 1, 2);
+        timeView.setText(time);
 
     }
 
