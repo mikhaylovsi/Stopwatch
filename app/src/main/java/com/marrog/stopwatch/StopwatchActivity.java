@@ -14,6 +14,7 @@ public class StopwatchActivity extends AppCompatActivity {
 
     private int seconds = 0;
     private boolean running = false;
+    private boolean wasRunning = false;
 
 
     @Override
@@ -21,11 +22,42 @@ public class StopwatchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stopwatch);
 
+        if(savedInstanceState != null){
+
+            seconds = savedInstanceState.getInt("seconds");
+            running = savedInstanceState.getBoolean("running");
+            wasRunning = savedInstanceState.getBoolean("wasRunning");
+
+        }
+
         runTimer();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        running = false;
+        wasRunning = true;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(wasRunning){
+            running = true;
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+
+      savedInstanceState.putInt("seconds", seconds);
+      savedInstanceState.putBoolean("running", running);
+      savedInstanceState.putBoolean("wasRunning", wasRunning);
 
 
     }
-
 
     void runTimer(){
 
