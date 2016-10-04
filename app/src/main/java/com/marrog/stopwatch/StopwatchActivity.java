@@ -34,20 +34,40 @@ public class StopwatchActivity extends AppCompatActivity {
     }
 
 
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        running = false;
+//        wasRunning = true;
+//    }
+
+
     @Override
-    public void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
+
+        if(running) {
+            wasRunning = true;
+        }
+
         running = false;
-        wasRunning = true;
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
         if(wasRunning){
             running = true;
         }
     }
+
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        if(wasRunning){
+//            running = true;
+//        }
+//    }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
